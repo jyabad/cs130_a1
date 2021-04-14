@@ -1,7 +1,6 @@
 #include <string>
 #include <iostream>
 #include "blockchain.cpp"
-#include "sha256.h"
 using namespace std;
 
 int main(){
@@ -35,7 +34,7 @@ int main(){
             cin >> person;
             bc.getBalance(person);
         }else if(operation == 3){
-            bc.print();
+            bc.printOldTransactions();
         }else {
         }
     }
