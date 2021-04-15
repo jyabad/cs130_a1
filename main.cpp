@@ -22,11 +22,10 @@ int main(){
             string receiver = "";
             cout << "Integer amount of money:" << endl;
             cin >> amount;
-            cout << endl << "Sender name" << endl;
+            cout << "Sender name" << endl;
             cin >> sender;
-            cout << endl << "Receiver name" << endl;
+            cout << "Receiver name" << endl;
             cin >> receiver;
-            cout << endl;
             bc.add(amount, sender, receiver);
         }else if(operation == 2){
             string person = "";
