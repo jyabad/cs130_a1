@@ -31,7 +31,7 @@ int main(){
             string person = "";
             cout << "Person Name" << endl;
             cin >> person;
-            bc.getBalance(person);
+            cout << bc.getBalance(person) << endl;
         }else if(operation == 3){
             bc.printOldTransactions();
         }else {

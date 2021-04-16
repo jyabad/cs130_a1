@@ -36,6 +36,7 @@ class Transaction{
             receiver = receiver1;
         }
         void setHash(int amount1, string sender1, string receiver1, string nonce1);
+        void setHash(int h);
         void setNonce(int amount1, string sender1, string receiver1);
         void setPrev(Transaction * prev1){prev = prev1;}
         string printBlock();
@@ -59,6 +60,10 @@ class Blockchain{
     private:
         Transaction * head;
 };
+
+void Transaction::setHash(int h){
+    hash = "";
+}
 
 void Transaction::setHash(int amount1, string sender1, string receiver1, string nonce1){
     hash = sha256(to_string(amount1) + sender1 + receiver1 + nonce1);
@@ -88,13 +93,15 @@ void Blockchain::add(int amount, string sender, string receiver){
     if(head == NULL){
         head = new1;
         head->setPrev(NULL);
+        head->setHash(0);
     }else{
         Transaction * temp = head;
         head = new1;
         head->setPrev(temp);
+        head->setHash(head->getPrev()->getAmount(), head->getPrev()->getSender(), head->getPrev()->getReceiver(), head->getPrev()->getNonce());
     }
     head->setNonce(amount, sender, receiver);
-    head->setHash(head->getPrev()->getAmount(), head->getPrev()->getSender(), head->getPrev()->getReceiver(), head->getPrev()->getNonce());
+    
 
 }
 
