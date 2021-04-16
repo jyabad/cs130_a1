@@ -62,7 +62,7 @@ class Blockchain{
 };
 
 void Transaction::setHash(int h){
-    hash = "";
+    hash = "NULL";
 }
 
 void Transaction::setHash(int amount1, string sender1, string receiver1, string nonce1){
