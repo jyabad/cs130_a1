@@ -70,10 +70,13 @@ void Transaction::setHash(int amount1, string sender1, string receiver1, string 
 }
 
 void Transaction::setNonce(int amount1, string sender1, string receiver1){
-    nonce = 'a';
+    nonce = "";
     string hash1 = sha256(to_string(amount1) + sender1 + receiver1 + nonce);
     while(hash1.at(hash1.length()-1) != '0'){
-        nonce = char(rand() % 26 + 97);
+        nonce = "";
+        for(int i = 0; i < 5; i++){
+            nonce += char(rand() % 26 + 97);
+        }
         hash1 = sha256(to_string(amount1) + sender1 + receiver1 + nonce);
     }
 }
